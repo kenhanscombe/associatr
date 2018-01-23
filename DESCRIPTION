@@ -1,0 +1,10 @@
+Package: associatr
+Title: Visual Evaluation of Human Genetic Association Evidence
+Version: 0.0.0.9000
+Author: person("Ken", "Hanscombe", email = "ken.hanscombe@gmail.com", role = c("aut", "cre"))
+Maintainer: Ken Hanscombe <ken.hanscombe@gmail.com>
+Description: Genome-wide association results graphics.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.10)
