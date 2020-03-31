@@ -6,3 +6,4 @@ R/correlation.R
 R/signal.R
 R/qq.R
 ^LICENSE\.md$
+^\.travis\.yml$
