@@ -2,3 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+data-raw
+R/postgwas.R
+R/correlation.R
+R/signal.R
+R/qq.R

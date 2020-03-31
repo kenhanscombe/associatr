@@ -1,11 +1,30 @@
 Package: associatr
-Title: Visual Evaluation of Human Genetic Association Evidence
+Title: Genetic Association Plots
 Version: 0.0.0.9000
-Author: person("Ken", "Hanscombe", email = "ken.hanscombe@gmail.com", role = c("aut", "cre"))
-Maintainer: Ken Hanscombe <ken.hanscombe@gmail.com>
-Description: Genome-wide association results graphics.
-License: GPL-2
+Authors@R: 
+    person(given = "Ken",
+           family = "Hanscombe",
+           role = c("aut", "cre"),
+           email = "ken.hanscombe@gmail.com")
+Description:
+  Manhattan and region plots. By default only variants with p < 0.001 are
+  plotted in the manhattan plot. Region plots use LDlinkR to retrieve LD and SQL
+  queries to UCSC genome browser to get biological context.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 2.10)
-RoxygenNote: 6.0.1
+Depends:
+    R (>= 2.10)
+Imports: 
+    dplyr,
+    tidyr,
+    purrr,
+    grid,
+    ggplot2,
+    ggrepel,
+    RMariaDB,
+    stringr,
+    DBI,
+    magrittr,
+    LDlinkR
+RoxygenNote: 7.1.0
