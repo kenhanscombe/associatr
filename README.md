@@ -2,8 +2,9 @@
 # associatr: Genetic Association Plots
 
 <!-- badges: start -->
-  [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-  <!-- badges: end -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build status](https://travis-ci.org/kenhanscombe/associatr.svg?branch=master)](https://travis-ci.org/kenhanscombe/associatr)
+<!-- badges: end -->
 
 ## Overview
 
