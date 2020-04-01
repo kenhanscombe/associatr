@@ -16,7 +16,7 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #'
 #' @details You will need genetic map data for the 22 autosomes. Download \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html}{build 37 genetic map files here}.
 #'
-#' @import dplyr tidyr purrr grid ggplot2 ggrepel RMariaDB stringr DBI
+#' @import dplyr tidyr purrr grid ggplot2 ggrepel RMySQL stringr DBI
 #' @importFrom magrittr "%>%"
 #' @importFrom LDlinkR LDproxy
 #' @export
@@ -96,7 +96,7 @@ ld_query <- function(target, pop = "EUR") {
 
 track_query <- function(chromosome, window_max, window_min, regulation = FALSE) {
   if(regulation) {
-    con_ucsc <- DBI::dbConnect(RMariaDB::MariaDB(), db = "hg19", user = "genome",
+    con_ucsc <- DBI::dbConnect(RMySQL::MySQL(), db = "hg19", user = "genome",
                           host = "genome-mysql.soe.ucsc.edu")
 
     cpgIslandExt <- suppressWarnings(DBI::dbGetQuery(
