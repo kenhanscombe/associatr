@@ -30,5 +30,5 @@ gwa_region(
 Plots is a negative log base 10 p-value against genomic position scatterplot for a relatively small genomic "window". Below this \bold{Association} layer, there are additional layers or "tracks" providing biological context: hg19 build 37 combined \bold{Recombination Rate}, known \bold{refSeq Genes}, and optional tracks including genetic regulation information.
 }
 \details{
-You will need genetic map data for the 22 autosomes. Download \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html}{build 37 genetic map files here}.
+You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data.
 }

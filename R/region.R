@@ -14,7 +14,7 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' @param window_kb A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location.
 #' @param regulation A boolean (default \code{FALSE}) indicating whether or not to include regulation tracks.
 #'
-#' @details You will need genetic map data for the 22 autosomes. Download \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html}{build 37 genetic map files here}.
+#' @details You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data.
 #'
 #' @import dplyr tidyr purrr grid ggplot2 ggrepel RMySQL stringr DBI
 #' @importFrom magrittr "%>%"
