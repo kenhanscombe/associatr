@@ -8,6 +8,7 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' Plots is a negative log base 10 p-value against genomic position scatterplot for a relatively small genomic "window". Below this \bold{Association} layer, there are additional layers or "tracks" providing biological context: hg19 build 37 combined \bold{Recombination Rate}, known \bold{refSeq Genes}, and optional tracks including genetic regulation information.
 #'
 #' @param data A genetic association results dataframe.
+#' @param recomb_map A recombination map dataframe with header and obligatory columns `position` (genomic position), `combined_rate` (combined recombination rate cM/Mb), and `chr` (chromosome). Use \code{\link{gwa_get_map}} to retrieve a build 37 map for any 1000 genomes phase 3 population.
 #' @param target A character vector for the variant of interest.
 #' @param chromosome An integer indicating the chromosome on which the region sits.
 #' @param target_bp A integer indicating base pair position in the centre of the region.
@@ -20,8 +21,8 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' @importFrom magrittr "%>%"
 #' @importFrom LDlinkR LDproxy
 #' @export
-gwa_region <- function(data, target, chromosome, target_bp, window_kb = 150,
-                       regulation = FALSE) {
+gwa_region <- function(data, recomb_map, target, chromosome, target_bp,
+                       window_kb = 150, regulation = FALSE) {
   window <- window_kb * 1e3
   window_min <- target_bp - window
   window_max <- target_bp + window
@@ -42,8 +43,8 @@ gwa_region <- function(data, target, chromosome, target_bp, window_kb = 150,
 
   p_assoc <- plot_assoc(df, target_bp, chromosome, window_max, window_min,
                         window_kb, region_p_min)
-  p_recom <- plot_recom(df, target_bp, chromosome, window_max, window_min,
-                        window_kb, region_p_min, plot_margin)
+  p_recom <- plot_recom(df, recomb_map, target_bp, chromosome, window_max,
+                        window_min, window_kb, region_p_min, plot_margin)
   p_gene <- plot_gene(refGene = track_list[[1]], target_bp, chromosome,
                       window_max, window_min, window_kb, region_p_min,
                       plot_margin)
@@ -167,9 +168,9 @@ plot_assoc <- function(data, target_bp, chromosome, window_max, window_min,
 
 
 # 1000G b37 combined recombination rate
-plot_recom <- function(df, target_bp, chromosome, window_max, window_min,
-                       window_kb, region_p_min, plot_margin) {
-  p_recom <- genetic_map_b37 %>%
+plot_recom <- function(df, recomb_map, target_bp, chromosome, window_max,
+                       window_min, window_kb, region_p_min, plot_margin) {
+  p_recom <- recomb_map %>%
     dplyr::filter(chr == chromosome & position %in% window_min:window_max) %>%
     dplyr::mutate(panel = "Recombination") %>%
     ggplot(aes(position, combined_rate, group = chr)) +

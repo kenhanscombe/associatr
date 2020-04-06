@@ -6,6 +6,7 @@
 \usage{
 gwa_region(
   data,
+  recomb_map,
   target,
   chromosome,
   target_bp,
@@ -15,6 +16,8 @@ gwa_region(
 }
 \arguments{
 \item{data}{A genetic association results dataframe.}
+
+\item{recomb_map}{A recombination map dataframe with header and obligatory columns `position` (genomic position), `combined_rate` (combined recombination rate cM/Mb), and `chr` (chromosome). Use \code{\link{gwa_get_map}} to retrieve a build 37 map for any 1000 genomes phase 3 population.}
 
 \item{target}{A character vector for the variant of interest.}
 
