@@ -18,6 +18,15 @@
 #' @export
 gwa_get_map <- function(pop = "CEU", write_map = FALSE) {
 
+  population_code <- c("CHB", "JPT", "CHS", "CDX", "KHV", "CEU", "TSI", "FIN",
+                       "GBR", "IBS", "YRI", "LWK", "GWD", "MSL", "ESN", "ASW",
+                       "ACB", "MXL", "PUR", "CLM", "PEL", "GIH", "PJL", "BEB",
+                       "STU", "ITU")
+
+  if(!(pop %in% population_code)) {
+    stop("Invalid population code. See https://www.internationalgenome.org/faq/which-populations-are-part-your-study/", call. = FALSE)
+  }
+
   url <- stringr::str_interp("ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130507_omni_recombination_rates/${pop}_omni_recombination_20130507.tar")
 
   file <- basename(url)
