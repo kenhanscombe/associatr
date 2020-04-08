@@ -12,17 +12,25 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' @param target A character vector for the variant of interest.
 #' @param chromosome An integer indicating the chromosome on which the region sits.
 #' @param target_bp A integer indicating base pair position in the centre of the region.
+#' @param pop A string argument passed to LDlinkR. A 1000 Genomes population codes, or super population codes can be used. Multiple codes allowed. Default is super population "EUR" (includes "CEU", "TSI", "FIN", "GBR", "IBS").
 #' @param window_kb A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location.
 #' @param regulation A boolean (default \code{FALSE}) indicating whether or not to include regulation tracks.
+#' @param token An LDlinkR 'Personal Access Token'. Default is `NULL`. See Details.
 #'
-#' @details You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data.
+#' @details You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described here \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}. Apply for a token here \href{https://ldlink.nci.nih.gov/?tab=apiaccess}.
 #'
 #' @import dplyr tidyr purrr grid ggplot2 ggrepel RMySQL stringr DBI
 #' @importFrom magrittr "%>%"
 #' @importFrom LDlinkR LDproxy
 #' @export
 gwa_region <- function(data, recomb_map, target, chromosome, target_bp,
-                       window_kb = 150, regulation = FALSE) {
+                       pop = "EUR", window_kb = 150, regulation = FALSE,
+                       token = NULL) {
+
+  if (is.null(token)) {
+    stop("Argument `token` requires an LDlinkR 'Personal Access Token' described here https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html. Apply for a token here https://ldlink.nci.nih.gov/?tab=apiaccess", call. = FALSE)
+  }
+
   window <- window_kb * 1e3
   window_min <- target_bp - window
   window_max <- target_bp + window
@@ -38,7 +46,7 @@ gwa_region <- function(data, recomb_map, target, chromosome, target_bp,
     min(.$P, na.rm = TRUE)
 
   track_list <- track_query(chromosome, window_max, window_min, regulation)
-  ld <- ld_query(target)
+  ld <- ld_query(target, pop, token)
   df <- df %>% dplyr::left_join(ld, by = "variant")
 
   p_assoc <- plot_assoc(df, target_bp, chromosome, window_max, window_min,
@@ -76,13 +84,13 @@ gwa_region <- function(data, recomb_map, target, chromosome, target_bp,
 
 #  LD and track query -----------------------------------------------------
 
-ld_query <- function(target, pop = "EUR") {
+ld_query <- function(target, pop, token) {
 
   LDlinkR::LDproxy(
     snp = target,
     pop = pop,
     r2d = "r2",
-    token = Sys.getenv("LDLINK_TOKEN")
+    token = token
   ) %>%
     dplyr::mutate(variant = stringr::str_replace(Coord, "chr", "")) %>%
     tidyr::separate(
@@ -139,7 +147,8 @@ plot_assoc <- function(data, target_bp, chromosome, window_max, window_min,
     annotate("line", x = c(window_min, window_max), y = -log10(5e-8),
              color = "grey", linetype = 3, size = 0.25) +
     annotate("text", x = window_max, y = -log10(5e-8) + 0.5, color = "grey",
-             label = "italic('p = 5e-08')", parse = TRUE, size = 2.5) +
+             label = "italic('p = 5e-08')", parse = TRUE, size = 2.5,
+             hjust = 1) +
     annotate("line", x = target_bp, y = c(0, -log10(region_p_min)),
              color = "red", linetype = 3, size = 0.25) +
     annotate("point", x = target_bp, y = -log10(region_p_min), shape = 1,
