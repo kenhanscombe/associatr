@@ -13,7 +13,7 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' @param chromosome An integer indicating the chromosome on which the region sits.
 #' @param target_bp A integer indicating base pair position in the centre of the region.
 #' @param pop A string argument passed to LDlinkR. A 1000 Genomes population codes, or super population codes can be used. Multiple codes allowed. Default is super population "EUR" (includes "CEU", "TSI", "FIN", "GBR", "IBS").
-#' @param window_kb A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location.
+#' @param window_kb A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location. 500kb maximum.
 #' @param regulation A boolean (default \code{FALSE}) indicating whether or not to include regulation tracks.
 #' @param token An LDlinkR 'Personal Access Token'. Default is `NULL`. See Details.
 #'
@@ -29,6 +29,10 @@ gwa_region <- function(data, recomb_map, target, chromosome, target_bp,
 
   if (is.null(token)) {
     stop("Argument `token` requires an LDlinkR 'Personal Access Token' described here https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html. Apply for a token here https://ldlink.nci.nih.gov/?tab=apiaccess", call. = FALSE)
+  }
+
+  if (window_kb > 500) {
+    stop("Maximum window is +/-500kb.")
   }
 
   window <- window_kb * 1e3
