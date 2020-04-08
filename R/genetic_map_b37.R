@@ -8,7 +8,7 @@
 #'
 #' @return A dataframe. If \code{write_map} is \code{TRUE}, then the recombination map is written to the working directory as genetic_map_b37_<\code{pop}>.rds. Note. the map is ~22MB.
 #'
-#' @details Previously retrieved map data from https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz
+#' @details Map data is retrieved from \href{https://www.internationalgenome.org/data-portal/search?q=recombination}. Previously retrieved map data from \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz}.
 #'
 #' @importFrom stringr str_interp
 #' @importFrom purrr map reduce
