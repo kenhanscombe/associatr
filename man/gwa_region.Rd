@@ -10,8 +10,10 @@ gwa_region(
   target,
   chromosome,
   target_bp,
+  pop = "EUR",
   window_kb = 150,
-  regulation = FALSE
+  regulation = FALSE,
+  token = NULL
 )
 }
 \arguments{
@@ -25,13 +27,17 @@ gwa_region(
 
 \item{target_bp}{A integer indicating base pair position in the centre of the region.}
 
-\item{window_kb}{A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location.}
+\item{pop}{A string argument passed to LDlinkR. A 1000 Genomes population codes, or super population codes can be used. Multiple codes allowed. Default is super population "EUR" (includes "CEU", "TSI", "FIN", "GBR", "IBS").}
+
+\item{window_kb}{A integer indicating window size in kb (default is 150kb), to be included either side of the \code{target_bp} location. 500kb maximum.}
 
 \item{regulation}{A boolean (default \code{FALSE}) indicating whether or not to include regulation tracks.}
+
+\item{token}{An LDlinkR 'Personal Access Token'. Default is `NULL`. See Details.}
 }
 \description{
 Plots is a negative log base 10 p-value against genomic position scatterplot for a relatively small genomic "window". Below this \bold{Association} layer, there are additional layers or "tracks" providing biological context: hg19 build 37 combined \bold{Recombination Rate}, known \bold{refSeq Genes}, and optional tracks including genetic regulation information.
 }
 \details{
-You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data.
+You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described here \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}. Apply for a token here \href{https://ldlink.nci.nih.gov/?tab=apiaccess}.
 }
