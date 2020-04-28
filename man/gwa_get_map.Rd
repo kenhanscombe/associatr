@@ -18,5 +18,5 @@ A dataframe. If \code{write_map} is \code{TRUE}, then the recombination map is w
 Retrieves \href{https://www.internationalgenome.org/category/population/}{1000 Genomes phase 3 recombination map} data for a specified population.
 }
 \details{
-Map data is retrieved from \href{https://www.internationalgenome.org/data-portal/search?q=recombination}. Previously retrieved map data from \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz}.
+Map data is retrieved from \href{https://www.internationalgenome.org/data-portal/search?q=recombination}{www.internationalgenome.org}. Previously retrieved map data from \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz}{mathgen.stats.ox.ac.uk}.
 }

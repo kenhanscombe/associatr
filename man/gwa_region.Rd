@@ -39,5 +39,5 @@ gwa_region(
 Plots is a negative log base 10 p-value against genomic position scatterplot for a relatively small genomic "window". Below this \bold{Association} layer, there are additional layers or "tracks" providing biological context: hg19 build 37 combined \bold{Recombination Rate}, known \bold{refSeq Genes}, and optional tracks including genetic regulation information.
 }
 \details{
-You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described here \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}. Apply for a token here \href{https://ldlink.nci.nih.gov/?tab=apiaccess}.
+You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}{here}. Apply for a token \href{https://ldlink.nci.nih.gov/?tab=apiaccess}{here}.
 }

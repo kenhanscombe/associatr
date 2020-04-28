@@ -17,7 +17,7 @@ globalVariables(c("#CHROM", ".", "P", "POS", "R2", "chr", "chromEnd",
 #' @param regulation A boolean (default \code{FALSE}) indicating whether or not to include regulation tracks.
 #' @param token An LDlinkR 'Personal Access Token'. Default is `NULL`. See Details.
 #'
-#' @details You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described here \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}. Apply for a token here \href{https://ldlink.nci.nih.gov/?tab=apiaccess}.
+#' @details You will need a genetic map. Use \code{\link{gwa_get_map}} to download 1000 Genomes phase 3 recombination map data. To retrieve LD data for the region of interest, you will need an LDlinkR 'Personal Access Token' described \href{https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html}{here}. Apply for a token \href{https://ldlink.nci.nih.gov/?tab=apiaccess}{here}.
 #'
 #' @import dplyr tidyr purrr grid ggplot2 ggrepel RMySQL stringr DBI
 #' @importFrom magrittr "%>%"
