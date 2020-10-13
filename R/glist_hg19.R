@@ -1,6 +1,7 @@
 #' Gene positions - hg19
 #'
-#' Gene range lists downloaded from PLINK 1.9 resources, generated from UCSC Table Browser RefSeq track
+#' Gene range lists downloaded from PLINK 1.9 resources, generated from
+#' UCSC Table Browser RefSeq track
 #'
 #' @format A dataframe with 26,292 rows and 4 variables:
 #' \describe{

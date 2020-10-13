@@ -20,6 +20,7 @@ A dataframe with 26,292 rows and 4 variables:
 glist_hg19
 }
 \description{
-Gene range lists downloaded from PLINK 1.9 resources, generated from UCSC Table Browser RefSeq track
+Gene range lists downloaded from PLINK 1.9 resources, generated from
+UCSC Table Browser RefSeq track
 }
 \keyword{datasets}

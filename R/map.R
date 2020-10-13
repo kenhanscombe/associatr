@@ -1,14 +1,23 @@
 
 #' Get genetic build 37 recombination map
 #'
-#' Retrieves \href{https://www.internationalgenome.org/category/population/}{1000 Genomes phase 3 recombination map} data for a specified population.
+#' Retrieves \href{https://www.internationalgenome.org/category/population/}{1000 Genomes phase 3 recombination map}
+#' data for a specified population.
 #'
-#' @param pop A \href{https://www.internationalgenome.org/category/population/}{1000 Genomes population code}. Default "CEU".
-#' @param write_map Write a serialized dataframe of the map data to disk. Default \code{FALSE}, does not write the map to disk but instead returns a dataframe.
+#' @param pop A \href{https://www.internationalgenome.org/category/population/}{1000 Genomes population code}.
+#' Default "CEU".
+#' @param write_map Write a serialized dataframe of the map data to
+#' disk. Default \code{FALSE}, does not write the map to disk but
+#' instead returns a dataframe.
 #'
-#' @return A dataframe. If \code{write_map} is \code{TRUE}, then the recombination map is written to the working directory as genetic_map_b37_<\code{pop}>.rds. Note. the map is ~22MB.
+#' @return A dataframe. If \code{write_map} is \code{TRUE}, then the
+#' recombination map is written to the working directory as
+#' genetic_map_b37_<\code{pop}>.rds. Note. the map is ~22MB.
 #'
-#' @details Map data is retrieved from \href{https://www.internationalgenome.org/data-portal/search?q=recombination}{www.internationalgenome.org}. Previously retrieved map data from \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz}{mathgen.stats.ox.ac.uk}.
+#' @details Map data is retrieved from
+#' \href{https://www.internationalgenome.org/data-portal/search?q=recombination}{www.internationalgenome.org}.
+#' Previously retrieved map data from
+#' \href{https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.tgz}{mathgen.stats.ox.ac.uk}.
 #'
 #' @importFrom stringr str_interp
 #' @importFrom purrr map reduce
@@ -16,7 +25,7 @@
 #' @importFrom magrittr "%>%"
 #'
 #' @export
-gwa_get_map <- function(pop = "CEU", write_map = FALSE) {
+get_map <- function(pop = "CEU", write_map = FALSE) {
 
   population_code <- c("CHB", "JPT", "CHS", "CDX", "KHV", "CEU", "TSI", "FIN",
                        "GBR", "IBS", "YRI", "LWK", "GWD", "MSL", "ESN", "ASW",
