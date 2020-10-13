@@ -3,7 +3,8 @@
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/kenhanscombe/associatr.svg?branch=master)](https://travis-ci.org/kenhanscombe/associatr)
+[![Travis build status](https://travis-ci.com/kenhanscombe/associatr.svg?branch=master)](https://travis-ci.com/kenhanscombe/associatr)
+[![Codecov test coverage](https://codecov.io/gh/kenhanscombe/associatr/branch/master/graph/badge.svg)](https://codecov.io/gh/kenhanscombe/associatr?branch=master)
 <!-- badges: end -->
 
 ## Overview
@@ -18,4 +19,4 @@ To install
 devtools::install_github("kenhanscombe/associatr", dependencies = TRUE, force = TRUE)
 ```
 
-**Note**. `gwa_region` requires an [LDlinkR personal access token](https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html). [Request token](https://ldlink.nci.nih.gov/?tab=apiaccess.).
+**Note**. `region` requires an [LDlinkR personal access token](https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html). [Request token](https://ldlink.nci.nih.gov/?tab=apiaccess.).
