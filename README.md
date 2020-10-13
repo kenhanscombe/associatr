@@ -9,14 +9,17 @@
 
 ## Overview
 
-associatr is an R package for manhattan and regional plots. By default only variants with p < 0.001 are plotted in the manhattan plot. Region plots use LDlinkR to retrieve LD and SQL queries to UCSC genome browser to get biological context.
+associatr is an R package for manhattan and regional plots. By default
+only variants with p < 0.001 are plotted in the manhattan plot. Region
+plots use LDlinkR to retrieve LD and SQL queries to UCSC genome browser
+to get biological context.
 
-<br>
-
-To install
+## Installation
 
 ```{R}
 devtools::install_github("kenhanscombe/associatr", dependencies = TRUE, force = TRUE)
 ```
 
-**Note**. `region` requires an [LDlinkR personal access token](https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html). [Request token](https://ldlink.nci.nih.gov/?tab=apiaccess.).
+**Note**. `region` requires an
+[LDlinkR personal access token](https://cran.r-project.org/web/packages/LDlinkR/vignettes/LDlinkR_vignette_v8-2_TM.html).
+[Request token](https://ldlink.nci.nih.gov/?tab=apiaccess.).
