@@ -1,0 +1,15 @@
+1,Bright Red,Active Promoter
+2,Light Red,Weak Promoter
+3,Purple,Inactive/poised Promoter
+4,Orange,Strong enhancer
+5,Orange,Strong enhancer
+6,Yellow,Weak/poised enhancer
+7,Yellow,Weak/poised enhancer
+8,Blue,Insulator
+9,Dark Green,Transcriptional transition
+10,Dark Green,Transcriptional elongation
+11,Light Green,Weak transcribed
+12,Gray,Polycomb-repressed
+13,Light Gray,Heterochromatin; low signal
+14,Light Gray,Repetitive/Copy Number Variation
+15,Light Gray,Repetitive/Copy Number Variation

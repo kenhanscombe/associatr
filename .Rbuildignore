@@ -8,3 +8,4 @@ R/qq.R
 ^LICENSE\.md$
 ^\.travis\.yml$
 ^codecov\.yml$
+^data-raw$
